@@ -73,7 +73,7 @@ function chargerVoixFrancaise() {
     
     // Chercher une voix française
     voixFrancaise = toutesLesVoix.find(voice => 
-        voice.lang.startsWith('fr') // 'fr-FR', 'fr-CA', etc.
+        voice.name === 'Microsoft Paul - French (France)' 
     );
     
     // Si les voix ne sont pas chargées immédiatement, on réessaie après l'événement
