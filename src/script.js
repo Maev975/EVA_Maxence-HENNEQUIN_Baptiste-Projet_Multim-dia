@@ -1,5 +1,7 @@
 
 //catégories
+liste =['Mojito', 'Piano', 'farine', 'Voiture', 'France', 'Baguette', 'eau', 'Poutine', 'Kebab', 'Spaghetti', 'Chocolat', 'Montagne', 'Océan', 'Astronaute', 'Robot', 'Télévision', 'Internet', 'Smartphone', 'Café', 'Thé', 'Musique', 'Danse', 'Cinéma', 'Photographie', 'Peinture', 'Sculpture', 'Théâtre', 'Poésie', 'Roman', 'Bande dessinée', 'Jeu vidéo', 'Football', 'Basketball', 'Tennis', 'Natation', 'Cyclisme', 'Randonnée', 'Camping', 'Jardinage', 'Cuisine', 'Voyage', 'Aventure'];
+
 const vocabulaireParCategorie = {
     "Animaux de la ferme": [
         { nom: 'canard', image: 'canard.png' }, 
@@ -34,17 +36,15 @@ const vocabulaireParCategorie = {
         { nom: 'Violet', image: 'violet.png' },
         { nom: 'Rose', image: 'rose.png' },
     ],
-    "Autres": [
-        { nom: 'Mojito' },
-        { nom: 'Piano' },
-        { nom: 'Cocaïne' },
-        { nom: 'Voiture' },
-        { nom: 'France' },
-        { nom: 'Baguette' },
-        { nom: 'URSS' },
-        { nom: 'Poutine' },
-        { nom: 'Kebab' },
-    ]
+    "Autres": (function(){
+        const n = 9; 
+        const copie = Array.from(liste);
+        for (let i = copie.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copie[i], copie[j]] = [copie[j], copie[i]];
+        }
+        return copie.slice(0, Math.min(n, copie.length)).map(nom => ({ nom }));
+    })()
 
 };
 
