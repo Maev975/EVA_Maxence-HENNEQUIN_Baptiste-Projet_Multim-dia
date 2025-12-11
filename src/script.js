@@ -66,12 +66,12 @@ async function getImageUrl(mot) {
         if (data.results && data.results.length > 0) {
             return data.results[0].urls.small; 
         } else {
-            console.warn(`Aucune image trouvée sur Unsplash pour le mot: ${mot}`);
-            return 'https://via.placeholder.com/150?text=Image+Non+Trouvee';
+            console.log(`Aucune image trouvée sur Unsplash pour le mot: ${mot}`); //c'est trop bien
+            return 'https://placehold.co/150?text=Image+Non+Trouvee';
         }
     } catch (error) {
         console.error("Erreur lors de la récupération de l'image depuis l'API:", error);
-        return 'https://via.placeholder.com/150?text=Erreur+API';
+        return 'https://placehold.co/150?text=Erreur+API';
     }
 }
 
@@ -142,7 +142,7 @@ function creerCarte(item) {
     card.classList.add('card', 'shadow-sm', 'h-100', 'text-center', 'clickable'); 
     card.setAttribute('data-name', item.nom);
     
-    let srcImage = 'https://via.placeholder.com/150?text=Chargement...'; 
+    let srcImage = 'https://placehold.co/150?text=Chargement...'; 
 
     if (item.image) { 
         srcImage = `../doc/${item.image}`;
@@ -157,7 +157,7 @@ function creerCarte(item) {
             .catch(error => {
                 const imgElement = card.querySelector('img');
                 if (imgElement) {
-                    imgElement.src = 'https://via.placeholder.com/150?text=Image+Echec+API';
+                    imgElement.src = 'https://placehold.co/150?text=Image+Echec+API';
                 }
             });
     }
