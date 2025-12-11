@@ -1,6 +1,6 @@
 
 //catégories
-liste =['Mojito', 'Piano', 'farine', 'Voiture', 'France', 'Baguette', 'eau', 'Poutine', 'Kebab', 'Spaghetti', 'Chocolat', 'Montagne', 'Océan', 'Astronaute', 'Robot', 'Télévision', 'Internet', 'Smartphone', 'Café', 'Thé', 'Musique', 'Danse', 'Cinéma', 'Photographie', 'Peinture', 'Sculpture', 'Théâtre', 'Poésie', 'Roman', 'Bande dessinée', 'Jeu vidéo', 'Football', 'Basketball', 'Tennis', 'Natation', 'Cyclisme', 'Randonnée', 'Camping', 'Jardinage', 'Cuisine', 'Voyage', 'Aventure'];
+liste =['Mojito', 'cocaïne', 'Piano', 'farine', 'Voiture', 'France', 'Baguette', 'eau', 'Poutine', 'Kebab', 'Spaghetti', 'Chocolat', 'Montagne', 'Océan', 'Astronaute', 'Robot', 'Télévision', 'Internet', 'Smartphone', 'Café', 'Thé', 'Musique', 'Danse', 'Cinéma', 'Photographie', 'Peinture', 'Sculpture', 'Théâtre', 'Poésie', 'Roman', 'Bande dessinée', 'Jeu vidéo', 'Football', 'Basketball', 'Tennis', 'Natation', 'Cyclisme', 'Randonnée', 'Camping', 'Jardinage', 'Cuisine', 'Voyage', 'Aventure'];
 
 const vocabulaireParCategorie = {
     "Animaux de la ferme": [
