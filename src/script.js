@@ -30,7 +30,7 @@ const vocabulaireParCategorie = {
         { nom: 'Jaune', image: 'jaune.png' },
         { nom: 'Noir', image: 'noir.png' },
         { nom: 'Blanc', image: 'blanc.png' },
-        { nom: 'OrangeC', image: 'orange.png' },
+        { nom: 'Orange', image: 'orangeC.png' },
         { nom: 'Violet', image: 'violet.png' },
         { nom: 'Rose', image: 'rose.png' },
     ]
