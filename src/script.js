@@ -230,10 +230,13 @@ function changerMode(nouveauMode) {
     modeActuel = nouveauMode;
     
     modeApprentissageBtn.classList.remove('active');
+    console.log("233 test "+modeApprentissageBtn.classList);
     modeJeuBtn.classList.remove('active');
 
     if (nouveauMode === 'apprentissage') {
         modeApprentissageBtn.classList.add('active');
+            console.log("233 test "+modeApprentissageBtn.classList);
+
         gameInfoSection.style.display = 'none'; 
         document.querySelectorAll('.card').forEach(card => card.classList.remove('correct', 'incorrect'));
         
