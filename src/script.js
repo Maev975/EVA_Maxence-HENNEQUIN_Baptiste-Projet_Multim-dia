@@ -52,7 +52,7 @@ const vocabulaireParCategorie = {
 const UNSPLASH_ACCESS_KEY = 'LdusrKiba0Z9NcRCVVAq8sas2adWD1TpOWkVDRz3tAc'; 
 const UNSPLASH_API_URL = `https://api.unsplash.com/search/photos?client_id=${UNSPLASH_ACCESS_KEY}`;
 
-//récupérer image avec API
+//récupérer image avec API https://unsplash.com/documentation#search-photos 
 async function getImageUrl(mot) {
     const url = `${UNSPLASH_API_URL}&query=${encodeURIComponent(mot)}&per_page=1`;
     
@@ -66,7 +66,7 @@ async function getImageUrl(mot) {
         if (data.results && data.results.length > 0) {
             return data.results[0].urls.small; 
         } else {
-            console.log(`Aucune image trouvée sur Unsplash pour le mot: ${mot}`); //c'est trop bien
+            console.log(`Aucune image trouvée sur Unsplash pour le mot: ${mot}`); //c'est trop bien https://placehold.co/ 
             return 'https://placehold.co/150?text=Image+Non+Trouvee';
         }
     } catch (error) {
