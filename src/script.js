@@ -33,6 +33,17 @@ const vocabulaireParCategorie = {
         { nom: 'Orange', image: 'image.png' },
         { nom: 'Violet', image: 'image.png' },
         { nom: 'Rose', image: 'image.png' },
+    ],
+    "Autres": [
+        { nom: 'Mojito', image: 'image.png' },
+        { nom: 'Bleu', image: 'image.png' },
+        { nom: 'Vert', image: 'image.png' },
+        { nom: 'Jaune', image: 'image.png' },
+        { nom: 'Noir', image: 'image.png' },
+        { nom: 'Blanc', image: 'image.png' },
+        { nom: 'Orange', image: 'image.png' },
+        { nom: 'Violet', image: 'image.png' },
+        { nom: 'Rose', image: 'image.png' },
     ]
 };
 
