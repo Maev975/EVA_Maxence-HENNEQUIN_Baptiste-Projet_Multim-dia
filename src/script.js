@@ -33,8 +33,48 @@ const vocabulaireParCategorie = {
         { nom: 'Orange', image: 'orangeC.png' },
         { nom: 'Violet', image: 'violet.png' },
         { nom: 'Rose', image: 'rose.png' },
+    ],
+    "Autres": [
+        { nom: 'Mojito' },
+        { nom: 'Piano' },
+        { nom: 'Cocaïne' },
+        { nom: 'Voiture' },
+        { nom: 'France' },
+        { nom: 'Baguette' },
+        { nom: 'URSS' },
+        { nom: 'Poutine' },
+        { nom: 'Kebab' },
     ]
+
 };
+
+// API
+const UNSPLASH_ACCESS_KEY = 'LdusrKiba0Z9NcRCVVAq8sas2adWD1TpOWkVDRz3tAc'; 
+const UNSPLASH_API_URL = `https://api.unsplash.com/search/photos?client_id=${UNSPLASH_ACCESS_KEY}`;
+
+//récupérer image avec API
+async function getImageUrl(mot) {
+    const url = `${UNSPLASH_API_URL}&query=${encodeURIComponent(mot)}&per_page=1`;
+    
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (data.results && data.results.length > 0) {
+            return data.results[0].urls.small; 
+        } else {
+            console.warn(`Aucune image trouvée sur Unsplash pour le mot: ${mot}`);
+            return 'https://via.placeholder.com/150?text=Image+Non+Trouvee';
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération de l'image depuis l'API:", error);
+        return 'https://via.placeholder.com/150?text=Erreur+API';
+    }
+}
+
 
 //selection de la catégorie 
 let categorieActive = Object.keys(vocabulaireParCategorie)[0]; 
@@ -102,8 +142,27 @@ function creerCarte(item) {
     card.classList.add('card', 'shadow-sm', 'h-100', 'text-center', 'clickable'); 
     card.setAttribute('data-name', item.nom);
     
+    let srcImage = 'https://via.placeholder.com/150?text=Chargement...'; 
+
+    if (item.image) { 
+        srcImage = `../doc/${item.image}`;
+    } else {        
+        getImageUrl(item.nom)
+            .then(url => {
+                const imgElement = card.querySelector('img');
+                if (imgElement) {
+                    imgElement.src = url;
+                }
+            })
+            .catch(error => {
+                const imgElement = card.querySelector('img');
+                if (imgElement) {
+                    imgElement.src = 'https://via.placeholder.com/150?text=Image+Echec+API';
+                }
+            });
+    }
     card.innerHTML = `
-        <img src="../doc/${item.image}" class="card-img-top p-3" alt="${item.nom}" style="object-fit: contain; height: 150px;">
+        <img src="${srcImage}" class="card-img-top p-3" alt="${item.nom}" style="object-fit: contain; height: 150px;">
         <div class="card-body">
             <p class="card-text fw-bold fs-5">${item.nom}</p>
         </div>
@@ -114,6 +173,9 @@ function creerCarte(item) {
     col.appendChild(card);
     vocabulaireGrid.appendChild(col);
 }
+
+
+
 
 function gererClicCarte(event) {
     const carte = event.currentTarget.closest('.card');
